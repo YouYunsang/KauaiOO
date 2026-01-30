@@ -3,13 +3,18 @@ using UnityEngine;
 public class PlayerItemHolder : MonoBehaviour
 {
     public Transform handSocket;
-    public Animator animator;
+    private Animator animator;
 
     public float dropForwardOffest = 0.8f;
     public float dropHeightOffest = 0.1f;
 
     public GameObject HeldItem { get; private set; }
     public bool IsHolding => HeldItem != null;
+
+    void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
 
     public void Hold(GameObject item)
     {
@@ -27,6 +32,23 @@ public class PlayerItemHolder : MonoBehaviour
         var itemCol = item.GetComponent<Collider>();
         if (itemCol != null) itemCol.isTrigger = true;
 
+        if (animator != null) animator.SetBool("isCarrying", true);
+    }
 
+    public void Drop()
+    {
+        if (HeldItem == null) return;
+
+        GameObject item = HeldItem;
+        item.transform.SetParent(null); //부모에서 분리
+        HeldItem = null;
+
+        var itemRb = item.GetComponent<Rigidbody>();
+        if (itemRb != null) itemRb.isKinematic = false;
+
+        var itemCol = item.GetComponent<Collider>();
+        if (itemCol != null) itemCol.isTrigger = false;
+
+        if (animator != null) animator.SetBool("isCarrying", false);
     }
 }

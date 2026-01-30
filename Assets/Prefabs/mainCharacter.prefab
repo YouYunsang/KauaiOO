@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.183
+      value: 8.21
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.892
+      value: 3.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mainCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
       propertyPath: m_Controller
       value: 
@@ -76,6 +80,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6604297018559382575}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3978487375894518485}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3562404873272834770}
   m_SourcePrefab: {fileID: 100100000, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
 --- !u!1 &5474976667015182820 stripped
 GameObject:
@@ -178,3 +188,40 @@ MonoBehaviour:
   interactRadius: 0.2
   interactHeight01: 0.45
   debugDraw: 0
+--- !u!114 &3978487375894518485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5474976667015182820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e88a156bf519604b8cc615cda167413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerItemHolder
+  handSocket: {fileID: 8698760629924193141}
+  dropForwardOffest: 0.8
+  dropHeightOffest: 0.1
+--- !u!114 &3562404873272834770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5474976667015182820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f8fa4d9c85ff044a7f9d67bd07befa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  interactRadius: 1.2
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  itemHolder: {fileID: 3978487375894518485}
+--- !u!4 &8698760629924193141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4576320367818713024, guid: 46643636a9e047144bc0c25d1ebfc617, type: 3}
+  m_PrefabInstance: {fileID: 5132537409924285621}
+  m_PrefabAsset: {fileID: 0}
